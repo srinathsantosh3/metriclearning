@@ -59,11 +59,12 @@ def calcDistanceMatrix2(AB,
     if len(AB)==2:
         A,B = AB
         #if (A==B).all(): return calcDistanceMatrix2([A],distFunc)
-        A = array(A)
-        B = array(B)
+        #A = array(A)
+        #B = array(B)
         nA,dim = A.shape
         assert(B.shape[1]==dim)
         nB = B.shape[0]
+        print A.shape,nB,B.shape,nA
         delta = repeat(A,nB,0) - repmat(B,nA,1)
         dist = distFunc(delta).reshape(nA,nB)  # dist[i,j] = d(A[i],B[j])
         del delta
